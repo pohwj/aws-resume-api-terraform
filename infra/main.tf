@@ -8,21 +8,21 @@ resource "aws_lambda_function" "myfunc" {
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
-    name = "iam_for_lambda"
+  name = "iam_for_lambda"
 
-    assume_role_policy = jsonencode({
-        Version = "2012-10-17"
-        Statement = [
-            {
-            Action = "sts:AssumeRole"
-            Principal = {
-                Service = "lambda.amazonaws.com"
-            }
-            Effect = "Allow"
-            Sid = ""
-            }
-        ]
-    })
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
+        Effect = "Allow"
+        Sid    = ""
+      }
+    ]
+  })
 }
 
 resource "aws_iam_policy" "iam_policy_for_serverless_lambda" {
@@ -106,12 +106,12 @@ resource "aws_api_gateway_method" "get_method" {
 }
 
 resource "aws_api_gateway_integration" "integration" {
-  rest_api_id = aws_api_gateway_rest_api.my-api-gw.id
-  resource_id = aws_api_gateway_resource.my-api-gw-resource.id
-  http_method = aws_api_gateway_method.get_method.http_method
+  rest_api_id             = aws_api_gateway_rest_api.my-api-gw.id
+  resource_id             = aws_api_gateway_resource.my-api-gw-resource.id
+  http_method             = aws_api_gateway_method.get_method.http_method
   integration_http_method = "POST"
-  type        = "AWS_PROXY" 
-  uri         = aws_lambda_function.myfunc.invoke_arn
+  type                    = "AWS_PROXY"
+  uri                     = aws_lambda_function.myfunc.invoke_arn
 }
 
 resource "aws_lambda_permission" "apigw_lambda_permission" {
@@ -138,9 +138,9 @@ resource "aws_api_gateway_deployment" "api-gw-deployment" {
   lifecycle {
     create_before_destroy = true
   }
-  
+
   depends_on = [
     aws_api_gateway_integration.integration, aws_api_gateway_method.get_method
   ]
-  
+
 }
