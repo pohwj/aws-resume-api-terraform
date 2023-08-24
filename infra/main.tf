@@ -78,7 +78,7 @@ resource "aws_s3_bucket" "serverless_bucket" {
   }
 }
 
-resource "aws_s3_bucket_object" "serverless_bucket_object" {
+resource "aws_s3_object" "serverless_bucket_object" {
   bucket = aws_s3_bucket.serverless_bucket.id
   key    = "resume.json"
   source = "${path.module}/resume.json"
