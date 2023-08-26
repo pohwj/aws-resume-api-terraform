@@ -3,12 +3,6 @@ name: 'Terraform to deploy infrastructure'
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
-    inputs:
-      action:
-        description: 'Choose an action: apply or destroy'
-        required: true
-        default: 'apply'
 
 
 jobs:
@@ -49,15 +43,8 @@ jobs:
 
         
       - name: Terraform Apply
-        if: github.event_name != 'workflow_dispatch' || (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply')
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -no-color
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      
-      - name: Terraform Destroy
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'destroy'
-        run: terraform destroy -auto-approve -no-color
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
