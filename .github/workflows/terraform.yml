@@ -2,7 +2,7 @@ name: 'Terraform to deploy infrastructure'
 
 on:
   push:
-    path-ignore:
+    paths-ignore:
       - 'README.md'
 
 jobs:
