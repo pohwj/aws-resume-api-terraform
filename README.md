@@ -14,6 +14,9 @@ Services used:
 API URL: https://l89f8hvu03.execute-api.ap-southeast-1.amazonaws.com/prod/serverless-api-gw
 
 References:
+
 https://jsonresume.org/schema/
+
 https://www.youtube.com/watch?v=UllPQzVXYtU
+
 https://www.youtube.com/watch?v=-pKrT7Ix3G0
