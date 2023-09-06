@@ -10,3 +10,6 @@ Services used:
 2) API Gateway + Lambda: Fetches and displays the resume from S3 when deployed
 3) Terraform: Provision S3 bucket, API Gateway and Lambda
 4) Github Actions: Workflow to run Terraform when triggered
+
+API URL: https://l89f8hvu03.execute-api.ap-southeast-1.amazonaws.com/prod/serverless-api-gw
+

@@ -2,8 +2,8 @@ name: 'Terraform to deploy infrastructure'
 
 on:
   push:
-    branches: [ main ]
-
+    path-ignore:
+      - 'README.md'
 
 jobs:
   terraform:
