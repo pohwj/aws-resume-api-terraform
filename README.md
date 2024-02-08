@@ -13,6 +13,8 @@ Services used:
 
 API URL: https://l89f8hvu03.execute-api.ap-southeast-1.amazonaws.com/prod/serverless-api-gw
 
+Blog post: https://pohwj.hashnode.dev/create-api-with-aws-lambda
+
 References:
 
 https://jsonresume.org/schema/
