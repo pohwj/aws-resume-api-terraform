@@ -119,13 +119,13 @@ resource "aws_lambda_permission" "apigw_lambda_permission" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.myfunc.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.my-api-gw.execution_arn}/prod/GET/*"
+  source_arn    = "${aws_api_gateway_rest_api.my-api-gw.execution_arn}/v1/GET/*"
 }
 
 resource "aws_api_gateway_stage" "api-gw-stage" {
   rest_api_id   = aws_api_gateway_rest_api.my-api-gw.id
   deployment_id = aws_api_gateway_deployment.api-gw-deployment.id
-  stage_name    = "prod"
+  stage_name    = "v1"
 }
 
 resource "aws_api_gateway_deployment" "api-gw-deployment" {
