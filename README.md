@@ -11,7 +11,7 @@ Services used:
 3) Terraform: Provision S3 bucket, API Gateway and Lambda
 4) Github Actions: Workflow to run Terraform when triggered
 
-API URL: https://l89f8hvu03.execute-api.ap-southeast-1.amazonaws.com/prod/serverless-api-gw
+API URL: https://s2gxped427.execute-api.ap-southeast-1.amazonaws.com/dev/serverless-api-gw
 
 Blog post: https://pohwj.hashnode.dev/create-api-with-aws-lambda
 
